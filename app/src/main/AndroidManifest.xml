@@ -9,8 +9,32 @@
         android:icon="@mipmap/ic_launcher"
         android:label=" "
         android:supportsRtl="true"
-        android:theme="@style/Theme.GameEdukasi"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".game.ActivityHewanLatihan"
+            android:exported="false" />
+        <activity
+            android:name=".game.ActivityKenalHuruf"
+            android:exported="false" />
+        <activity
+            android:name=".game.ActivityTebakGambar"
+            android:exported="false" />
+        <activity
+            android:name=".game.ActivityBerhitung"
+            android:exported="false" />
+        <activity
+            android:name=".option.ActivityGameOption"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMainExp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity21"
             android:exported="false" />
