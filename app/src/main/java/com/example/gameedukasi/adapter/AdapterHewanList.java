@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,12 +42,25 @@ public class AdapterHewanList extends RecyclerView.Adapter<AdapterHewanList.View
     @Override
     public void onBindViewHolder(@NonNull AdapterHewanList.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.imgSelectHewan.setImageResource(items.get(position).getIcon());
+        player = new MediaPlayer();
         holder.imgSelectHewan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startSound(items.get(position).getNama());
+                player.stop();
+                player.release();
+                player = MediaPlayer.create(context, items.get(position).getSound());
+                player.start();
+
             }
         });
+        if(player !=null && player.isPlaying()){
+            player.release();
+            player.stop();
+        }
+
+//        ((Activity) context).onBackPressed();
+//        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
     @Override
@@ -64,25 +78,9 @@ public class AdapterHewanList extends RecyclerView.Adapter<AdapterHewanList.View
         }
     }
 
-    public void startSound(String filename) {
-        player = new MediaPlayer();
-        try {
-            if (player.isPlaying()) {
-                player.stop();
-                player.release();
-            }
-
-            AssetFileDescriptor descriptor = context.getAssets().openFd(filename+".mp3");
-            player.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
-            descriptor.close();
-
-            player.prepare();
-            player.setVolume(1f, 1f);
-            player.setLooping(false);
-            player.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void stopSound(){
+        player.stop();
+        player.release();
     }
 
 }

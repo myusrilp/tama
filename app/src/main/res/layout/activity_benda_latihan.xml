@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.ActivityHewanLatihan"
+    tools:context=".game.ActivityBendaLatihan"
     android:orientation="vertical"
     android:background="@drawable/bacground">
 
@@ -14,7 +14,7 @@
         android:layout_weight="8"
         android:orientation="vertical">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHewanList"
+            android:id="@+id/rvBendaList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"/>
