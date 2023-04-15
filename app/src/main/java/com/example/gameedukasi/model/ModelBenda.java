@@ -3,12 +3,12 @@ package com.example.gameedukasi.model;
 public class ModelBenda {
     private String nama;
     private int icon;
-//    private int sound;
+    private int sound;
 
-    public ModelBenda(String nama, int icon/*, int sound*/) {
+    public ModelBenda(String nama, int icon, int sound) {
         this.nama = nama;
         this.icon = icon;
-//        this.sound = sound;
+        this.sound = sound;
     }
 
     public String getNama() {
@@ -27,11 +27,11 @@ public class ModelBenda {
         this.icon = icon;
     }
 
-//    public int getSound() {
-//        return sound;
-//    }
-//
-//    public void setSound(int sound) {
-//        this.sound = sound;
-//    }
+    public int getSound() {
+        return sound;
+    }
+
+    public void setSound(int sound) {
+        this.sound = sound;
+    }
 }
