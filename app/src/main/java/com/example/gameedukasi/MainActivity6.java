@@ -62,7 +62,7 @@ public class MainActivity6 extends AppCompatActivity {
                         } catch (Exception e) {e.printStackTrace();}
                     }
                 });
-                Intent intent = new Intent(context,MainActivity18.class);
+                Intent intent = new Intent(context,MainActivity12.class);
                 startActivity(intent);
             }
         });
