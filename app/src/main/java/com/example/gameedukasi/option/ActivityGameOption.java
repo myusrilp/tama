@@ -76,6 +76,8 @@ public class ActivityGameOption extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                player = MediaPlayer.create(context, R.raw.latihan);
+                player.start();
                 if (kategori.equalsIgnoreCase("tebakgambar")){
                     Intent i = new Intent(context, ActivityTebakGambar.class);
                     startActivity(i);
@@ -93,6 +95,8 @@ public class ActivityGameOption extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                player = MediaPlayer.create(context, R.raw.quiz);
+                player.start();
                 Intent i = new Intent(context, ActivityTebakGambar.class);
                 startActivity(i);
             }
