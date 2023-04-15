@@ -52,5 +52,14 @@ public class ActivityTebakGambar extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        imgBuah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                player = MediaPlayer.create(context, R.raw.buahbuahan);
+                player.start();
+                Intent i = new Intent(context, ActivityBuahLatihan.class);
+                startActivity(i);
+            }
+        });
     }
 }
