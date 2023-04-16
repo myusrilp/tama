@@ -32,6 +32,7 @@ public class ActivityTebakGambar extends AppCompatActivity {
         imgHewan = (ImageButton) findViewById(R.id.imgHewan);
         imgBenda = (ImageButton) findViewById(R.id.imgBenda);
         imgBuah = (ImageButton) findViewById(R.id.imgBuah);
+        imgInstrumen = (ImageButton) findViewById(R.id.imgInstrumen);
 
         imgHewan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +59,15 @@ public class ActivityTebakGambar extends AppCompatActivity {
                 player = MediaPlayer.create(context, R.raw.buahbuahan);
                 player.start();
                 Intent i = new Intent(context, ActivityBuahLatihan.class);
+                startActivity(i);
+            }
+        });
+        imgInstrumen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                player = MediaPlayer.create(context, R.raw.alatmusik);
+                player.start();
+                Intent i = new Intent(context, ActivityAlatMusikLatihan.class);
                 startActivity(i);
             }
         });
