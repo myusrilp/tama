@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".game.ActivityHijaiyahLatihan"
+            android:exported="false" />
+        <activity
             android:name=".game.ActivityAlatMusikLatihan"
             android:exported="false" />
         <activity

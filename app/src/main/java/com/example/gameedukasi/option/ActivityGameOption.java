@@ -97,8 +97,10 @@ public class ActivityGameOption extends AppCompatActivity {
                 dialog.dismiss();
                 player = MediaPlayer.create(context, R.raw.quiz);
                 player.start();
-                Intent i = new Intent(context, ActivityTebakGambar.class);
-                startActivity(i);
+                if (kategori.equalsIgnoreCase("tebakgambar")) {
+                    Intent i = new Intent(context, ActivityTebakGambar.class);
+                    startActivity(i);
+                }
             }
         });
         dialog.show();
