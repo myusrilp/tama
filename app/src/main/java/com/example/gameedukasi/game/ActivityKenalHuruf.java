@@ -37,7 +37,10 @@ public class ActivityKenalHuruf extends AppCompatActivity {
         imgAbc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context,ActivityKenalHuruf.class);
+                player = MediaPlayer.create(context, R.raw.abjad);
+                player.start();
+                Intent i = new Intent(context,ActivityAbjadLatihan.class);
+                startActivity(i);
             }
         });
     }
