@@ -19,6 +19,7 @@ import com.example.gameedukasi.R;
 import com.example.gameedukasi.game.ActivityBerhitung;
 import com.example.gameedukasi.game.ActivityKenalHuruf;
 import com.example.gameedukasi.game.ActivityTebakGambar;
+import com.example.gameedukasi.game.ActivityTebakGambarQuiz;
 
 public class ActivityGameOption extends AppCompatActivity {
 
@@ -97,10 +98,8 @@ public class ActivityGameOption extends AppCompatActivity {
                 dialog.dismiss();
                 player = MediaPlayer.create(context, R.raw.quiz);
                 player.start();
-                if (kategori.equalsIgnoreCase("tebakgambar")) {
-                    Intent i = new Intent(context, ActivityTebakGambar.class);
-                    startActivity(i);
-                }
+                Intent i = new Intent(context, ActivityTebakGambarQuiz.class);
+                startActivity(i);
             }
         });
         dialog.show();
