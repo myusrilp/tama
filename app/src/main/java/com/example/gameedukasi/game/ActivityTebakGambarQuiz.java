@@ -48,7 +48,25 @@ public class ActivityTebakGambarQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 player = MediaPlayer.create(context, R.raw.benda);
                 player.start();
-                Intent i = new Intent(context, ActivityBendaLatihan.class);
+                Intent i = new Intent(context, ActivityBendaQuiz.class);
+                startActivity(i);
+            }
+        });
+        imgBuah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                player = MediaPlayer.create(context, R.raw.buahbuahan);
+                player.start();
+                Intent i = new Intent(context, ActivityBuahQuiz.class);
+                startActivity(i);
+            }
+        });
+        imgInstrumen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                player = MediaPlayer.create(context, R.raw.alatmusik);
+                player.start();
+                Intent i = new Intent(context, ActivityAlatMusikQuiz.class);
                 startActivity(i);
             }
         });

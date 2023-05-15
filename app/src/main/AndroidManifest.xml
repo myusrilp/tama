@@ -12,6 +12,15 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".game.ActivityAlatMusikQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".game.ActivityBuahQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".game.ActivityBendaQuiz"
+            android:exported="false" />
+        <activity
             android:name=".game.ActivityAbjadLatihan"
             android:exported="false" />
         <activity

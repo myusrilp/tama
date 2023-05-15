@@ -1,41 +1,44 @@
 package com.example.gameedukasi.game;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.gameedukasi.R;
-import com.example.gameedukasi.adapter.AdapterAlatMusikList;
-import com.example.gameedukasi.adapter.AdapterBendaList;
 import com.example.gameedukasi.model.ModelAlatMusik;
 import com.example.gameedukasi.model.ModelBenda;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityAlatMusikLatihan extends AppCompatActivity {
-    private Context context = ActivityAlatMusikLatihan.this;
-    List<ModelAlatMusik> alatmusiks;
-    AdapterAlatMusikList adapterAlatMusikList;
+public class ActivityAlatMusikQuiz extends AppCompatActivity {
 
-    private RecyclerView rvAlatMusikList;
-    private Button back;
-    MediaPlayer player;
-    @SuppressLint("MissingInflatedId")
+    private Context context = ActivityAlatMusikQuiz.this;
+
+    List<ModelAlatMusik> alatmusiks;
+    int nilai = 0;
+    int number;
+
+    private Button btnAnswer;
+    private ImageView imgvRand;
+    private TextView scoreInt;
+    private EditText txtJawaban;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alat_musik_latihan);
+        setContentView(R.layout.activity_benda_quiz);
 
-        rvAlatMusikList = (RecyclerView) findViewById(R.id.rvAlatMusikList);
-        back = (Button) findViewById(R.id.back);
+        btnAnswer = (Button) findViewById(R.id.btnAnswer);
+        imgvRand = (ImageView) findViewById(R.id.imgvRand);
+        scoreInt = (TextView) findViewById(R.id.scoreInt);
+        txtJawaban = (EditText) findViewById(R.id.txtJawaban);
 
         alatmusiks = new ArrayList<>();
         alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.angklung, R.raw.angklung));
@@ -62,21 +65,34 @@ public class ActivityAlatMusikLatihan extends AppCompatActivity {
         alatmusiks.add(new ModelAlatMusik("suling", R.drawable.suling, R.raw.suling));
         alatmusiks.add(new ModelAlatMusik("talindo", R.drawable.talindo, R.raw.talindo));
 
-        initiateRecyclerView();
-        player = new MediaPlayer();
-        back.setOnClickListener(new View.OnClickListener() {
+//        generateRandomImage();
+
+        scoreInt.setText(String.valueOf(nilai));
+        number = (int) (Math.random()*(alatmusiks.size()));
+        imgvRand.setImageResource(alatmusiks.get(number).getIcon());
+
+        btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
-                adapterAlatMusikList.stopSound();
+                generateRandomImage();
             }
         });
-    }
-
-        private void initiateRecyclerView(){
-            adapterAlatMusikList = new AdapterAlatMusikList(context, alatmusiks);
-            rvAlatMusikList.setLayoutManager(new GridLayoutManager(context, 3));
-            rvAlatMusikList.setAdapter(adapterAlatMusikList);
 
     }
+
+    private void generateRandomImage(){
+        String jawaban = String.valueOf(txtJawaban.getText());
+        System.out.println("jawaban : " + jawaban);
+        System.out.println("jawaban2 : " + alatmusiks.get(number).getNama());
+        if (jawaban.equalsIgnoreCase(alatmusiks.get(number).getNama())){
+            nilai = nilai + 10;
+            System.out.println(nilai);
+            scoreInt.setText(String.valueOf(nilai));
+            number = (int) (Math.random()*(alatmusiks.size()));
+            imgvRand.setImageResource(alatmusiks.get(number).getIcon());
+        }else{
+            System.out.println("masuk else");
+        }
+    }
+
 }
