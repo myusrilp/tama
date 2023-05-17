@@ -22,6 +22,7 @@ public class ActivityKenalHuruf extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kenal_huruf);
+
         imgHijaiyah = (ImageButton) findViewById(R.id.imgHijaiyah);
         imgAbc = (ImageButton) findViewById(R.id.imgAbc);
 

@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import com.example.gameedukasi.R;
 import com.example.gameedukasi.game.ActivityBerhitung;
 import com.example.gameedukasi.game.ActivityKenalHuruf;
+import com.example.gameedukasi.game.ActivityKenalHurufQuiz;
 import com.example.gameedukasi.game.ActivityTebakGambar;
 import com.example.gameedukasi.game.ActivityTebakGambarQuiz;
 
@@ -98,8 +99,13 @@ public class ActivityGameOption extends AppCompatActivity {
                 dialog.dismiss();
                 player = MediaPlayer.create(context, R.raw.quiz);
                 player.start();
-                Intent i = new Intent(context, ActivityTebakGambarQuiz.class);
-                startActivity(i);
+                if (kategori.equalsIgnoreCase("tebakgambar")) {
+                    Intent i = new Intent(context, ActivityTebakGambarQuiz.class);
+                    startActivity(i);
+                } else if (kategori.equalsIgnoreCase("huruf")) {
+                    Intent i = new Intent(context, ActivityKenalHurufQuiz.class);
+                    startActivity(i);
+                }
             }
         });
         dialog.show();

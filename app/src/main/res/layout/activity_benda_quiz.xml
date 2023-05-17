@@ -28,8 +28,8 @@
 
     <ImageView
         android:id="@+id/imgvRand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center_horizontal"/>
 
     <EditText
@@ -46,6 +46,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jawab"
+        android:layout_gravity="center_horizontal"/>
+    <Button
+        android:id="@+id/btnVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voice"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

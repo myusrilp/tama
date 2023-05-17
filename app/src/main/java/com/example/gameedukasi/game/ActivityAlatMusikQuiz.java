@@ -1,14 +1,19 @@
 package com.example.gameedukasi.game;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameedukasi.R;
 import com.example.gameedukasi.model.ModelAlatMusik;
@@ -29,6 +34,9 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
     private ImageView imgvRand;
     private TextView scoreInt;
     private EditText txtJawaban;
+    private  Button btnVoice;
+    private String ID_BahasaIndonesia = "id";
+    protected static final int RESULT_SPEECH = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,7 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
         imgvRand = (ImageView) findViewById(R.id.imgvRand);
         scoreInt = (TextView) findViewById(R.id.scoreInt);
         txtJawaban = (EditText) findViewById(R.id.txtJawaban);
+        btnVoice = (Button) findViewById(R.id.btnVoice);
 
         alatmusiks = new ArrayList<>();
         alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.angklung, R.raw.angklung));
@@ -77,7 +86,35 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
                 generateRandomImage();
             }
         });
+        btnVoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mic_google = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                mic_google.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                mic_google.putExtra(RecognizerIntent.EXTRA_LANGUAGE, ID_BahasaIndonesia);
 
+                try {
+                    startActivityForResult(mic_google, RESULT_SPEECH);
+                    txtJawaban.setText("");
+                }catch (ActivityNotFoundException e){
+                    Toast.makeText(getApplicationContext()," not found", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case RESULT_SPEECH:
+                if (resultCode == RESULT_OK && data !=null){
+                    ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    txtJawaban.setText(text.get(0));
+                }
+                break;
+        }
     }
 
     private void generateRandomImage(){
