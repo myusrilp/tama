@@ -105,6 +105,9 @@ public class ActivityGameOption extends AppCompatActivity {
                 } else if (kategori.equalsIgnoreCase("huruf")) {
                     Intent i = new Intent(context, ActivityKenalHurufQuiz.class);
                     startActivity(i);
+                }else if (kategori.equalsIgnoreCase("berhitung")){
+                    Intent i = new Intent(context, ActivityBerhitung.class);
+                    startActivity(i);
                 }
             }
         });
