@@ -2,9 +2,11 @@ package com.example.gameedukasi.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +27,7 @@ public class ActivityHewanQuiz extends AppCompatActivity {
     private Context context = ActivityHewanQuiz.this;
     List<ModelHewan> hewanList;
     int nilai = 0;
+    int soal = 1;
     int number;
 
     private Button btnAnswer;
@@ -77,29 +80,60 @@ public class ActivityHewanQuiz extends AppCompatActivity {
         scoreInt.setText(String.valueOf(nilai));
         number = (int) (Math.random()*(hewanList.size()));
         imgvRand.setImageResource(hewanList.get(number).getIcon());
-
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                generateRandomImage();
+                if (soal == 10){
+                    showResult(String.valueOf(nilai));
+                }else{
+                    generateRandomImage();
+                }
+
             }
         });
 
     }
-
     private void generateRandomImage(){
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + hewanList.get(number).getNama());
         if (jawaban.equalsIgnoreCase(hewanList.get(number).getNama())){
             nilai = nilai + 10;
+            soal = soal + 1;
             System.out.println(nilai);
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(hewanList.size()));
             imgvRand.setImageResource(hewanList.get(number).getIcon());
+            txtJawaban.setText("");
         }else{
+            soal = soal + 1;
+            scoreInt.setText(String.valueOf(nilai));
+            number = (int) (Math.random()*(hewanList.size()));
+            imgvRand.setImageResource(hewanList.get(number).getIcon());
+            txtJawaban.setText("");
             System.out.println("masuk else");
         }
+    }
+
+    private void showResult(String hasil){
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_hasil);
+        dialog.setCancelable(false);
+
+        TextView skorhasil = (TextView) dialog.findViewById(R.id.skorhasil);
+        Button ok = (Button) dialog.findViewById(R.id.ok);
+
+        skorhasil.setText(hasil);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        dialog.show();
     }
 
 }
