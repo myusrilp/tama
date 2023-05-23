@@ -125,8 +125,10 @@ public class ActivityBendaQuiz extends AppCompatActivity {
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(bendas.size()));
             imgvRand.setImageResource(bendas.get(number).getIcon());
+            Toast.makeText(ActivityBendaQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
             System.out.println("masuk else");
+            Toast.makeText(ActivityBendaQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
         }
     }
 

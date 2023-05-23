@@ -127,7 +127,9 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(alatmusiks.size()));
             imgvRand.setImageResource(alatmusiks.get(number).getIcon());
+            Toast.makeText(ActivityAlatMusikQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
+            Toast.makeText(ActivityAlatMusikQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
             System.out.println("masuk else");
         }
     }

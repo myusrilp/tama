@@ -132,9 +132,10 @@ public class ActivityHijaiyahQuiz extends AppCompatActivity {
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(hijaiyahs.size()));
             imgvRand.setImageResource(hijaiyahs.get(number).getIcon());
+            Toast.makeText(ActivityHijaiyahQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
+            Toast.makeText(ActivityHijaiyahQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
             System.out.println("masuk else");
         }
     }
-
 }

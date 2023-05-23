@@ -37,7 +37,7 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
     private TextView scoreInt;
     private EditText txtJawaban;
 
-    private  Button btnVoice;
+    private Button btnVoice;
     private String ID_BahasaIndonesia = "id";
     protected static final int RESULT_SPEECH = 1;
 
@@ -81,10 +81,10 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
         //        generateRandomImage();
 
         scoreInt.setText(String.valueOf(nilai));
-        number = (int) (Math.random()*(abjads.size()));
+        number = (int) (Math.random() * (abjads.size()));
         imgvRand.setImageResource(abjads.get(number).getIcon());
 
-
+// mic voice
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,8 +101,8 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
                 try {
                     startActivityForResult(mic_google, RESULT_SPEECH);
                     txtJawaban.setText("");
-                }catch (ActivityNotFoundException e){
-                    Toast.makeText(getApplicationContext()," not found", Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(), " not found", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
             }
@@ -110,32 +110,34 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
 
     }
 
+    //mic voice
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case RESULT_SPEECH:
-                if (resultCode == RESULT_OK && data !=null){
+                if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     txtJawaban.setText(text.get(0));
-            }
+                }
                 break;
         }
     }
 
-    private void generateRandomImage(){
+    private void generateRandomImage() {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + abjads.get(number).getNama());
-        if (jawaban.equalsIgnoreCase(abjads.get(number).getNama())){
+        if (jawaban.equalsIgnoreCase(abjads.get(number).getNama())) {
             nilai = nilai + 10;
             System.out.println(nilai);
             scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(abjads.size()));
+            number = (int) (Math.random() * (abjads.size()));
             imgvRand.setImageResource(abjads.get(number).getIcon());
-        }else{
+            Toast.makeText(ActivityAbjadQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ActivityAbjadQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
             System.out.println("masuk else");
         }
     }
-
 }

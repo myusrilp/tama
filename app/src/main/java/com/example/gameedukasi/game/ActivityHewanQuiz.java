@@ -134,7 +134,9 @@ public class ActivityHewanQuiz extends AppCompatActivity {
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(hewanList.size()));
             imgvRand.setImageResource(hewanList.get(number).getIcon());
+            Toast.makeText(ActivityHewanQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
+            Toast.makeText(ActivityHewanQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
             System.out.println("masuk else");
         }
     }

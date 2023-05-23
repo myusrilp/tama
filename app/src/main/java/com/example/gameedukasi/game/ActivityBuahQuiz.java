@@ -138,7 +138,9 @@ public class ActivityBuahQuiz extends AppCompatActivity {
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(buahs.size()));
             imgvRand.setImageResource(buahs.get(number).getIcon());
+            Toast.makeText(ActivityBuahQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
+            Toast.makeText(ActivityBuahQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
             System.out.println("masuk else");
         }
     }
