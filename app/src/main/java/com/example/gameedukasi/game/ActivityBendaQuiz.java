@@ -3,12 +3,14 @@ package com.example.gameedukasi.game;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ public class ActivityBendaQuiz extends AppCompatActivity {
     private Context context = ActivityBendaQuiz.this;
     List<ModelBenda> bendas;
     int nilai = 0;
+    int soal = 1;
     int number;
 
     private Button btnAnswer;
@@ -81,7 +84,11 @@ public class ActivityBendaQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                generateRandomImage();
+                if (soal == 10){
+                    showResult(String.valueOf(nilai));
+                }else {
+                    generateRandomImage();
+                }
             }
         });
         btnVoice.setOnClickListener(new View.OnClickListener() {
@@ -121,15 +128,41 @@ public class ActivityBendaQuiz extends AppCompatActivity {
         System.out.println("jawaban2 : " + bendas.get(number).getNama());
         if (jawaban.equalsIgnoreCase(bendas.get(number).getNama())){
             nilai = nilai + 10;
+            soal = soal + 1;
             System.out.println(nilai);
             scoreInt.setText(String.valueOf(nilai));
             number = (int) (Math.random()*(bendas.size()));
             imgvRand.setImageResource(bendas.get(number).getIcon());
+            txtJawaban.setText("");
             Toast.makeText(ActivityBendaQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         }else{
             System.out.println("masuk else");
+            soal = soal + 1;
+            scoreInt.setText(String.valueOf(nilai));
+            number = (int) (Math.random()*(bendas.size()));
+            imgvRand.setImageResource(bendas.get(number).getIcon());
+            txtJawaban.setText("");
             Toast.makeText(ActivityBendaQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
         }
     }
+    private void showResult(String hasil) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_hasil);
+        dialog.setCancelable(false);
 
+        TextView skorhasil = (TextView) dialog.findViewById(R.id.skorhasil);
+        Button ok = (Button) dialog.findViewById(R.id.ok);
+
+        skorhasil.setText(hasil);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        dialog.show();
+    }
 }
