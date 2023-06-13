@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.example.gameedukasi.R;
 import com.example.gameedukasi.game.ActivityBerhitung;
+import com.example.gameedukasi.game.ActivityBerhitungQuiz;
 import com.example.gameedukasi.game.ActivityKenalHuruf;
 import com.example.gameedukasi.game.ActivityKenalHurufQuiz;
 import com.example.gameedukasi.game.ActivityTebakGambar;
@@ -106,7 +107,7 @@ public class ActivityGameOption extends AppCompatActivity {
                     Intent i = new Intent(context, ActivityKenalHurufQuiz.class);
                     startActivity(i);
                 }else if (kategori.equalsIgnoreCase("berhitung")){
-                    Intent i = new Intent(context, ActivityBerhitung.class);
+                    Intent i = new Intent(context, ActivityBerhitungQuiz.class);
                     startActivity(i);
                 }
             }

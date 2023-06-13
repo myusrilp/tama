@@ -36,7 +36,7 @@
         android:id="@+id/txtJawaban"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Masukkan nama hewan disini"
+        android:hint="Masukkan Jawaban Disini"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="15pt"/>

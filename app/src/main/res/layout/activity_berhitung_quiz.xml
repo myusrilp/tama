@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.ActivityHijaiyahQuiz"
+    tools:context=".game.ActivityBerhitungQuiz"
     android:background="@drawable/cloud"
     android:orientation="vertical">
 
@@ -34,12 +34,13 @@
 
     <EditText
         android:id="@+id/txtJawaban"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukkan Jawaban Disini"
+        android:hint="Masukan Jawaban Disini"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
-        android:textSize="15pt"/>
+        android:textSize="15pt"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/btnAnswer"
@@ -53,5 +54,7 @@
         android:layout_height="wrap_content"
         android:text="Voice"
         android:layout_gravity="center_horizontal"/>
+
+
 
 </LinearLayout>

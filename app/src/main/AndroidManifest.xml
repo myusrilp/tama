@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".game.ActivityBerhitungQuiz"
+            android:exported="false" />
+        <activity
             android:name=".game.ActivityAbjadQuiz"
             android:exported="false" />
         <activity
