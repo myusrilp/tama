@@ -53,29 +53,21 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
         btnVoice = (Button) findViewById(R.id.btnVoice);
 
         alatmusiks = new ArrayList<>();
-        alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.qqangklung, R.raw.angklung));
-        alatmusiks.add(new ModelAlatMusik("aramba", R.drawable.qqaramba, R.raw.aramba));
-        alatmusiks.add(new ModelAlatMusik("bende", R.drawable.qbende, R.raw.bende));
-        alatmusiks.add(new ModelAlatMusik("burdah", R.drawable.qburdah, R.raw.burdah));
-        alatmusiks.add(new ModelAlatMusik("cangor", R.drawable.qcangor, R.raw.cangor));
-        alatmusiks.add(new ModelAlatMusik("demung", R.drawable.qdemung, R.raw.demung));
-        alatmusiks.add(new ModelAlatMusik("dolidoli", R.drawable.qdolidoli, R.raw.dolidoli));
-        alatmusiks.add(new ModelAlatMusik("ganda", R.drawable.qganda, R.raw.ganda));
-        alatmusiks.add(new ModelAlatMusik("gendang", R.drawable.qgendang, R.raw.gendang));
-        alatmusiks.add(new ModelAlatMusik("gesogeso", R.drawable.qgesogeso, R.raw.gesogeso));
-        alatmusiks.add(new ModelAlatMusik("gong", R.drawable.qgong, R.raw.gong));
-        alatmusiks.add(new ModelAlatMusik("gurinding", R.drawable.qguriding, R.raw.gurinding));
-        alatmusiks.add(new ModelAlatMusik("kecapi", R.drawable.qkecapi, R.raw.kecapi));
-        alatmusiks.add(new ModelAlatMusik("kecrek", R.drawable.qkecrek, R.raw.kecrek));
-        alatmusiks.add(new ModelAlatMusik("kolintang", R.drawable.qkolintang, R.raw.kolintang));
-        alatmusiks.add(new ModelAlatMusik("lalove", R.drawable.qlalove, R.raw.lalove));
-        alatmusiks.add(new ModelAlatMusik("pupuik", R.drawable.qpupuik, R.raw.pupuik));
-        alatmusiks.add(new ModelAlatMusik("rebab", R.drawable.qrebab, R.raw.rebab));
-        alatmusiks.add(new ModelAlatMusik("sape", R.drawable.qsape, R.raw.sape));
-        alatmusiks.add(new ModelAlatMusik("sasando", R.drawable.qsasando, R.raw.sasando));
-        alatmusiks.add(new ModelAlatMusik("siter", R.drawable.qsiter, R.raw.siter));
-        alatmusiks.add(new ModelAlatMusik("suling", R.drawable.qsuling, R.raw.suling));
-        alatmusiks.add(new ModelAlatMusik("talindo", R.drawable.qtalindo, R.raw.talindo));
+        alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.zangklung, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("biola", R.drawable.zbiola, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("drum", R.drawable.zdrum, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gamelan", R.drawable.zgamelan, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gendang", R.drawable.zgendang, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gitar", R.drawable.zgitar, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("harmonika", R.drawable.zharmonika, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("harpa", R.drawable.zharpa, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("kecrek", R.drawable.zkecrek, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("pianika", R.drawable.zpianika, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("piano", R.drawable.zpiano, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("simbal", R.drawable.zsimbal, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("suling", R.drawable.zsuling, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("terompet", R.drawable.zterompet, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("ukulele", R.drawable.zukulele, R.raw.a));
 
 //        generateRandomImage();
 

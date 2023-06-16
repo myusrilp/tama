@@ -38,29 +38,22 @@ public class ActivityAlatMusikLatihan extends AppCompatActivity {
         back = (Button) findViewById(R.id.back);
 
         alatmusiks = new ArrayList<>();
-        alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.angklung, R.raw.angklung));
-        alatmusiks.add(new ModelAlatMusik("aramba", R.drawable.aramba, R.raw.aramba));
-        alatmusiks.add(new ModelAlatMusik("bende", R.drawable.bende, R.raw.bende));
-        alatmusiks.add(new ModelAlatMusik("burdah", R.drawable.burdah, R.raw.burdah));
-        alatmusiks.add(new ModelAlatMusik("cangor", R.drawable.cangor, R.raw.cangor));
-        alatmusiks.add(new ModelAlatMusik("demung", R.drawable.demung, R.raw.demung));
-        alatmusiks.add(new ModelAlatMusik("dolidoli", R.drawable.dolidoli, R.raw.dolidoli));
-        alatmusiks.add(new ModelAlatMusik("ganda", R.drawable.ganda, R.raw.ganda));
-        alatmusiks.add(new ModelAlatMusik("gendang", R.drawable.gendang, R.raw.gendang));
-        alatmusiks.add(new ModelAlatMusik("gesogeso", R.drawable.gesogeso, R.raw.gesogeso));
-        alatmusiks.add(new ModelAlatMusik("gong", R.drawable.gong, R.raw.gong));
-        alatmusiks.add(new ModelAlatMusik("gurinding", R.drawable.guriding, R.raw.gurinding));
-        alatmusiks.add(new ModelAlatMusik("kecapi", R.drawable.kecapi, R.raw.kecapi));
-        alatmusiks.add(new ModelAlatMusik("kecrek", R.drawable.kecrek, R.raw.kecrek));
-        alatmusiks.add(new ModelAlatMusik("kolintang", R.drawable.kolintang, R.raw.kolintang));
-        alatmusiks.add(new ModelAlatMusik("lalove", R.drawable.lalove, R.raw.lalove));
-        alatmusiks.add(new ModelAlatMusik("pupuik", R.drawable.pupuik, R.raw.pupuik));
-        alatmusiks.add(new ModelAlatMusik("rebab", R.drawable.rebab, R.raw.rebab));
-        alatmusiks.add(new ModelAlatMusik("sape", R.drawable.sape, R.raw.sape));
-        alatmusiks.add(new ModelAlatMusik("sasando", R.drawable.sasando, R.raw.sasando));
-        alatmusiks.add(new ModelAlatMusik("siter", R.drawable.siter, R.raw.siter));
-        alatmusiks.add(new ModelAlatMusik("suling", R.drawable.suling, R.raw.suling));
-        alatmusiks.add(new ModelAlatMusik("talindo", R.drawable.talindo, R.raw.talindo));
+        alatmusiks.add(new ModelAlatMusik("angklung", R.drawable.zangklung, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("biola", R.drawable.zbiola, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("drum", R.drawable.zdrum, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gamelan", R.drawable.zgamelan, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gendang", R.drawable.zgendang, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("gitar", R.drawable.zgitar, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("harmonika", R.drawable.zharmonika, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("harpa", R.drawable.zharpa, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("kecrek", R.drawable.zkecrek, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("pianika", R.drawable.zpianika, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("piano", R.drawable.zpiano, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("simbal", R.drawable.zsimbal, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("suling", R.drawable.zsuling, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("terompet", R.drawable.zterompet, R.raw.a));
+        alatmusiks.add(new ModelAlatMusik("ukulele", R.drawable.zukulele, R.raw.a));
+
 
         initiateRecyclerView();
         player = new MediaPlayer();
