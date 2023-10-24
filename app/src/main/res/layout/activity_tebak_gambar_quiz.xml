@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.ActivityTebakGambar"
+    tools:context=".game.Activity_TebakGambar"
     android:orientation="horizontal"
     android:background="@drawable/layout6">
 
@@ -26,19 +26,6 @@
                 android:layout_height="200dp"
                 android:background="@drawable/lion"/>
             <ImageButton
-                android:id="@+id/imgBenda"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="200dp"
-                android:background="@drawable/box"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
-            <ImageButton
                 android:id="@+id/imgBuah"
                 android:layout_width="0dp"
                 android:layout_weight="5"
@@ -50,6 +37,15 @@
                 android:layout_weight="5"
                 android:layout_height="200dp"
                 android:background="@drawable/musicalinstrument"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
         </LinearLayout>
 
     </LinearLayout>

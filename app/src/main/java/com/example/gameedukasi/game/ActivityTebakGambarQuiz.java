@@ -30,7 +30,6 @@ public class ActivityTebakGambarQuiz extends AppCompatActivity {
 
         imgInstrumen = (ImageButton) findViewById(R.id.imgInstrumen);
         imgHewan = (ImageButton) findViewById(R.id.imgHewan);
-        imgBenda = (ImageButton) findViewById(R.id.imgBenda);
         imgBuah = (ImageButton) findViewById(R.id.imgBuah);
 
         imgHewan.setOnClickListener(new View.OnClickListener() {
@@ -43,15 +42,6 @@ public class ActivityTebakGambarQuiz extends AppCompatActivity {
             }
         });
 
-        imgBenda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                player = MediaPlayer.create(context, R.raw.benda);
-                player.start();
-                Intent i = new Intent(context, ActivityBendaQuiz.class);
-                startActivity(i);
-            }
-        });
         imgBuah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

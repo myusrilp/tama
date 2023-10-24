@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gameedukasi.R;
-import com.example.gameedukasi.model.ModelBenda;
 import com.example.gameedukasi.model.ModelBerhitung;
 
 import java.util.ArrayList;
@@ -52,21 +51,21 @@ public class ActivityBerhitungQuiz extends AppCompatActivity {
         btnVoice = (Button) findViewById(R.id.btnVoice);
 
         berhitungs = new ArrayList<>();
-        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar1, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar2, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("5", R.drawable.gambar3, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar4, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("12", R.drawable.gambar5, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("14", R.drawable.gambar6, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("20", R.drawable.gambar7, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("14", R.drawable.gambar8, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("1", R.drawable.gambar9, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar10, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar11, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("1", R.drawable.gambar12, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("2", R.drawable.gambar13, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar14, R.raw.jam));
-        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar15, R.raw.jam));
+        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar1, R.raw.a));
+        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar2, R.raw.a));
+        berhitungs.add(new ModelBerhitung("5", R.drawable.gambar3, R.raw.a));
+        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar4, R.raw.a));
+        berhitungs.add(new ModelBerhitung("12", R.drawable.gambar5, R.raw.a));
+        berhitungs.add(new ModelBerhitung("14", R.drawable.gambar6, R.raw.a));
+        berhitungs.add(new ModelBerhitung("20", R.drawable.gambar7, R.raw.a));
+        berhitungs.add(new ModelBerhitung("14", R.drawable.gambar8, R.raw.a));
+        berhitungs.add(new ModelBerhitung("1", R.drawable.gambar9, R.raw.a));
+        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar10, R.raw.a));
+        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar11, R.raw.a));
+        berhitungs.add(new ModelBerhitung("1", R.drawable.gambar12, R.raw.a));
+        berhitungs.add(new ModelBerhitung("2", R.drawable.gambar13, R.raw.a));
+        berhitungs.add(new ModelBerhitung("3", R.drawable.gambar14, R.raw.a));
+        berhitungs.add(new ModelBerhitung("4", R.drawable.gambar15, R.raw.a));
 
 //        generateRandomImage();
 
@@ -77,7 +76,7 @@ public class ActivityBerhitungQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (soal == 10){
+                if (soal == 11){
                     showResult(String.valueOf(nilai));
                 }else {
                     generateRandomImage();
@@ -119,24 +118,25 @@ public class ActivityBerhitungQuiz extends AppCompatActivity {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + berhitungs.get(number).getNama());
-        if (jawaban.equalsIgnoreCase(berhitungs.get(number).getNama())){
+
+        if (jawaban.equalsIgnoreCase(berhitungs.get(number).getNama())) {
             nilai = nilai + 10;
-            soal = soal + 1;
-            System.out.println(nilai);
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(berhitungs.size()));
-            imgvRand.setImageResource(berhitungs.get(number).getIcon());
-            txtJawaban.setText("");
             Toast.makeText(ActivityBerhitungQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
-        }else{
-            System.out.println("masuk else");
-            soal = soal + 1;
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(berhitungs.size()));
-            imgvRand.setImageResource(berhitungs.get(number).getIcon());
-            txtJawaban.setText("");
+        } else {
             Toast.makeText(ActivityBerhitungQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
         }
+
+        soal = soal + 1;
+
+        if (soal == 11) {
+            showResult(String.valueOf(nilai));
+        } else {
+            scoreInt.setText(String.valueOf(nilai));
+            number = (int) (Math.random() * berhitungs.size());
+            imgvRand.setImageResource(berhitungs.get(number).getIcon());
+            txtJawaban.setText("");
+        }
+        System.out.println("masuk else");
     }
     private void showResult(String hasil) {
         final Dialog dialog = new Dialog(context);

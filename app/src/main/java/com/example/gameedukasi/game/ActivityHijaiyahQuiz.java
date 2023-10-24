@@ -92,7 +92,7 @@ public class ActivityHijaiyahQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (soal == 10){
+                if (soal == 11){
                     showResult(String.valueOf(nilai));
                 }else {
                     generateRandomImage();
@@ -133,24 +133,25 @@ public class ActivityHijaiyahQuiz extends AppCompatActivity {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + hijaiyahs.get(number).getNama());
-        if (jawaban.equalsIgnoreCase(hijaiyahs.get(number).getNama())){
+
+        if (jawaban.equalsIgnoreCase(hijaiyahs.get(number).getNama())) {
             nilai = nilai + 10;
-            soal = soal + 1;
-            System.out.println(nilai);
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(hijaiyahs.size()));
-            imgvRand.setImageResource(hijaiyahs.get(number).getIcon());
-            txtJawaban.setText("");
             Toast.makeText(ActivityHijaiyahQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(ActivityHijaiyahQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
-            soal = soal + 1;
+        }
+
+        soal = soal + 1;
+
+        if (soal == 11) {
+            showResult(String.valueOf(nilai));
+        } else {
             scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(hijaiyahs.size()));
+            number = (int) (Math.random() * hijaiyahs.size());
             imgvRand.setImageResource(hijaiyahs.get(number).getIcon());
             txtJawaban.setText("");
-            System.out.println("masuk else");
         }
+        System.out.println("masuk else");
     }
     private void showResult(String hasil) {
         final Dialog dialog = new Dialog(context);

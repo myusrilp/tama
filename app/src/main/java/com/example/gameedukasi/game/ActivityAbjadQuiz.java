@@ -91,7 +91,7 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (soal == 10){
+                if (soal == 11){
                     showResult(String.valueOf(nilai));
                 }else {
                     generateRandomImage();
@@ -135,24 +135,25 @@ public class ActivityAbjadQuiz extends AppCompatActivity {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + abjads.get(number).getNama());
+
         if (jawaban.equalsIgnoreCase(abjads.get(number).getNama())) {
             nilai = nilai + 10;
-            soal = soal + 1;
-            System.out.println(nilai);
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random() * (abjads.size()));
-            imgvRand.setImageResource(abjads.get(number).getIcon());
-            txtJawaban.setText("");
             Toast.makeText(ActivityAbjadQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(ActivityAbjadQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
-            soal = soal + 1;
+        }
+
+        soal = soal + 1;
+
+        if (soal == 11) {
+            showResult(String.valueOf(nilai));
+        } else {
             scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(abjads.size()));
+            number = (int) (Math.random() * abjads.size());
             imgvRand.setImageResource(abjads.get(number).getIcon());
             txtJawaban.setText("");
-            System.out.println("masuk else");
         }
+        System.out.println("masuk else");
     }
     private void showResult(String hasil) {
         final Dialog dialog = new Dialog(context);

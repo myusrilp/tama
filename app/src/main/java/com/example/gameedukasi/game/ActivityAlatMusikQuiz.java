@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.example.gameedukasi.R;
 import com.example.gameedukasi.model.ModelAlatMusik;
-import com.example.gameedukasi.model.ModelBenda;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +77,7 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (soal == 10){
+                if (soal == 11){
                     showResult(String.valueOf(nilai));
                 }else {
                     generateRandomImage();
@@ -120,24 +119,25 @@ public class ActivityAlatMusikQuiz extends AppCompatActivity {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + alatmusiks.get(number).getNama());
-        if (jawaban.equalsIgnoreCase(alatmusiks.get(number).getNama())){
+
+        if (jawaban.equalsIgnoreCase(alatmusiks.get(number).getNama())) {
             nilai = nilai + 10;
-            soal = soal + 1;
-            System.out.println(nilai);
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(alatmusiks.size()));
-            imgvRand.setImageResource(alatmusiks.get(number).getIcon());
-            txtJawaban.setText("");
             Toast.makeText(ActivityAlatMusikQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(ActivityAlatMusikQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
-            soal = soal + 1;
+        }
+
+        soal = soal + 1;
+
+        if (soal == 11) {
+            showResult(String.valueOf(nilai));
+        } else {
             scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(alatmusiks.size()));
+            number = (int) (Math.random() * alatmusiks.size());
             imgvRand.setImageResource(alatmusiks.get(number).getIcon());
             txtJawaban.setText("");
-            System.out.println("masuk else");
         }
+        System.out.println("masuk else");
     }
     private void showResult(String hasil) {
         final Dialog dialog = new Dialog(context);

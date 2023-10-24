@@ -26,11 +26,18 @@
                 android:layout_height="200dp"
                 android:background="@drawable/lion"/>
             <ImageButton
-                android:id="@+id/imgBenda"
+                android:id="@+id/imgBuah"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="5"
+                android:background="@drawable/fruit" />
+
+            <ImageButton
+                android:id="@+id/imgInstrumen"
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:layout_height="200dp"
-                android:background="@drawable/box"/>
+                android:background="@drawable/musicalinstrument"/>
         </LinearLayout>
 
         <LinearLayout
@@ -38,18 +45,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
-            <ImageButton
-                android:id="@+id/imgBuah"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="200dp"
-                android:background="@drawable/fruit"/>
-            <ImageButton
-                android:id="@+id/imgInstrumen"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="200dp"
-                android:background="@drawable/musicalinstrument"/>
+
+
         </LinearLayout>
 
     </LinearLayout>

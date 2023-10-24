@@ -12,9 +12,7 @@ import android.widget.Button;
 
 import com.example.gameedukasi.R;
 import com.example.gameedukasi.adapter.AdapterAbjadList;
-import com.example.gameedukasi.adapter.AdapterBendaList;
 import com.example.gameedukasi.model.ModelAbjad;
-import com.example.gameedukasi.model.ModelBenda;
 
 import java.util.ArrayList;
 import java.util.List;

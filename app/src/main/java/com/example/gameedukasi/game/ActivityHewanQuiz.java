@@ -68,8 +68,8 @@ public class ActivityHewanQuiz extends AppCompatActivity {
         hewanList.add(new ModelHewan("harimau", R.drawable.bharimau, R.raw.harimau));
         hewanList.add(new ModelHewan("kelinci", R.drawable.bkelinci, R.raw.kelinci));
         hewanList.add(new ModelHewan("kucing", R.drawable.bkucing, R.raw.kucing));
-        hewanList.add(new ModelHewan("kucing", R.drawable.bsapi, R.raw.s));
-        hewanList.add(new ModelHewan("kucing", R.drawable.bsinga, R.raw.singa));
+        hewanList.add(new ModelHewan("sapi", R.drawable.bsapi, R.raw.s));
+        hewanList.add(new ModelHewan("singa", R.drawable.bsinga, R.raw.singa));
 
 //        generateRandomImage();
 
@@ -79,7 +79,7 @@ public class ActivityHewanQuiz extends AppCompatActivity {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (soal == 10){
+                if (soal == 11){
                     showResult(String.valueOf(nilai));
                 }else{
                     generateRandomImage();
@@ -116,29 +116,31 @@ public class ActivityHewanQuiz extends AppCompatActivity {
                 break;
         }
     }
-    private void generateRandomImage(){
+    private void generateRandomImage() {
         String jawaban = String.valueOf(txtJawaban.getText());
         System.out.println("jawaban : " + jawaban);
         System.out.println("jawaban2 : " + hewanList.get(number).getNama());
-        if (jawaban.equalsIgnoreCase(hewanList.get(number).getNama())){
+
+        if (jawaban.equalsIgnoreCase(hewanList.get(number).getNama())) {
             nilai = nilai + 10;
-            soal = soal + 1;
-            System.out.println(nilai);
-            scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(hewanList.size()));
-            imgvRand.setImageResource(hewanList.get(number).getIcon());
-            txtJawaban.setText("");
             Toast.makeText(ActivityHewanQuiz.this, "Jawaban benar!", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Toast.makeText(ActivityHewanQuiz.this, "Jawaban salah!", Toast.LENGTH_SHORT).show();
-            soal = soal + 1;
+        }
+
+        soal = soal + 1;
+
+        if (soal == 11) {
+            showResult(String.valueOf(nilai));
+        } else {
             scoreInt.setText(String.valueOf(nilai));
-            number = (int) (Math.random()*(hewanList.size()));
+            number = (int) (Math.random() * hewanList.size());
             imgvRand.setImageResource(hewanList.get(number).getIcon());
             txtJawaban.setText("");
-            System.out.println("masuk else");
         }
+        System.out.println("masuk else");
     }
+
 
     private void showResult(String hasil){
         final Dialog dialog = new Dialog(context);

@@ -53,7 +53,7 @@ public class ActivityHewanLatihan extends AppCompatActivity {
         hewanList.add(new ModelHewan("harimau", R.drawable.bharimau, R.raw.harimau));
         hewanList.add(new ModelHewan("kelinci", R.drawable.bkelinci, R.raw.kelinci));
         hewanList.add(new ModelHewan("kucing", R.drawable.bkucing, R.raw.kucing));
-        hewanList.add(new ModelHewan("sapi", R.drawable.bsapi, R.raw.s));
+        hewanList.add(new ModelHewan("sapi", R.drawable.bsapi, R.raw.sapi));
         hewanList.add(new ModelHewan("singa", R.drawable.bsinga, R.raw.singa));
 
         initiateRecyclerView();
