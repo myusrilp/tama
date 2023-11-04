@@ -3,6 +3,7 @@ package com.example.gameedukasi.game;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gameedukasi.R;
+import com.example.gameedukasi.database.Handler;
 import com.example.gameedukasi.model.ModelHewan;
 
 import org.w3c.dom.Text;
@@ -42,7 +44,9 @@ public class ActivityHewanQuiz extends AppCompatActivity {
     private Button btnVoice;
     private String ID_BahasaIndonesia = "id";
     protected static final int RESULT_SPEECH = 1;
+    private EditText namaSkor;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,7 @@ public class ActivityHewanQuiz extends AppCompatActivity {
         scoreInt = (TextView) findViewById(R.id.scoreInt);
         txtJawaban = (EditText) findViewById(R.id.txtJawaban);
         btnVoice = (Button) findViewById(R.id.btnVoice);
+        namaSkor = (EditText) findViewById(R.id.namaSkor);
 
         hewanList = new ArrayList<>();
         hewanList.add(new ModelHewan("angsa", R.drawable.bangsa, R.raw.angsa));
@@ -149,6 +154,7 @@ public class ActivityHewanQuiz extends AppCompatActivity {
         dialog.setCancelable(false);
 
         TextView skorhasil = (TextView) dialog.findViewById(R.id.skorhasil);
+        EditText namaSkor = (EditText) dialog.findViewById(R.id.namaSkor);
         Button ok = (Button) dialog.findViewById(R.id.ok);
 
         skorhasil.setText(hasil);
@@ -156,11 +162,29 @@ public class ActivityHewanQuiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                Handler databaseHandler = new Handler(context);
+                databaseHandler.open();
+
+                int id = 1;
+                int skor = Integer.parseInt(hasil); // Your skor
+                String skorType = "hewan"; // Your skorType
+                String name = namaSkor.getText().toString();
+
+                long result = databaseHandler.insertOrUpdateModelSkor(id, skor, skorType, name);
+                if (result != -1) {
+                    Toast.makeText(context, "Sukses input skor", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Gagal input skor", Toast.LENGTH_SHORT).show();
+                }
+
+                databaseHandler.close();
                 finish();
             }
         });
 
         dialog.show();
     }
+
+
 
 }
