@@ -39,6 +39,9 @@ public class ActivitySkor extends AppCompatActivity {
         Handler databaseHandler = new Handler(context);
         databaseHandler.open();
 
+        //UNTUK AMBIL SKOR, SILAHKAN MASUKKAN ID DARI MASING MASING KATEGORI YANG SUDAH DITENTUKAN
+        //BERIKUT CONTOH UNTUK MENAMPILKAN SKOR UNTUK KATEGORI TEBAK GAMBAR HEWAN
+        //CONTOH INI MENGGUNAKAN ID = 1, UNTUK SELANJUTNYA SILAHKAN GANTI ID SESUAI DENGAN KATEGORI YANG DIINGINKAN
         ModelSkor modelSkor = databaseHandler.getModelSkorById(1);
 
         if(modelSkor != null) {
@@ -53,6 +56,10 @@ public class ActivitySkor extends AppCompatActivity {
             System.out.println("nama dan skor : " + name + skor);
 
         }
+        //PROSES AMBIL DATA UNTUK KATEGORI GAMBAR HEWAN SELESAI DISINI.
+
+        //UNTUK PENGAMBILAN SELANJUTNYA SILAHKAN MASUKKAN DISINI
+        //PENTING : JANGAN MASUKKAN CODE DIBAWAN databaseHandler.close()
 
         databaseHandler.close();
     }
